@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Alert from "./Components/UI/Alerts/Alert";
+import "./App.css";
+import {
+  BellRing,
+  Info,
+  LaptopMinimalCheck,
+  TriangleAlert,
+} from "lucide-react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Alert title={"Alert-Denger"} icon={<BellRing />} type="alert-denger">
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
+          facilis. Tenetur facere a, {""}
+          <a href="/">EDO</a>, sit ipsam explicabo nesciunt et assumenda ullam
+          aperiam minima odit pariatur dolores, quasi"
+        </Alert>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <br />
+      <div>
+        <Alert
+          title={"Alert-success"}
+          type="alert-success"
+          icon={<LaptopMinimalCheck />}
+          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
+        facilis. Tenetur facere a, corporis fuga sequi , sit ipsam explicabo
+        nesciunt et assumenda ullam aperiam minima odit pariatur dolores, quasi"
+        />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <br />
+      <div>
+        <Alert
+          title={"Alert-Wraning"}
+          type="alert-wraning"
+          icon={<TriangleAlert />}
+          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
+        facilis. Tenetur facere a, corporis fuga sequi, sit ipsam explicabo
+        nesciunt et assumenda ullam aperiam minima odit pariatur dolores, quasi"
+        />
+      </div>
+      <br />
+      <div>
+        <Alert
+          title={"Alert-Info"}
+          type="alert-info"
+          icon={<Info />}
+          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
+        facilis. Tenetur facere a, corporis fuga sequi, sit ipsam explicabo
+        nesciunt et assumenda ullam aperiam minima odit pariatur dolores, quasi"
+        />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

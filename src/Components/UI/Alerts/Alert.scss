@@ -1,0 +1,67 @@
+body {
+  background-color: black;
+}
+
+// COLORS:-
+
+// Default :-
+$defaultBg: rgb(29 31 32 /71%);
+$defaultColor: #c8c8c8;
+$defaultBorder: #c8c8c8;
+
+// INFO :-
+$infoColor: #bcc0ff;
+$infoBorder: #646cff;
+$infoBg: rgb(100 108 255 /8%);
+
+// WARNING :-
+$warningBg: rgb(255 197 23 / 5%);
+$warningColor: #fcd253;
+$warningBorder: rgba(255, 213, 0, 0.793);
+
+// ERROR :-
+$errorBg: rgb(192 29 29 /15%);
+$errorColor: #ef8d8dfa;
+$errorBorder: rgba(255, 25, 0, 0.322);
+
+// SUCCESS :-
+$successBg: rgba(246, 238, 9, 0.127);
+$successColor: #7acf58d6;
+$successBorder: rgba(0, 255, 0, 0.322);
+
+// Mixin for dynamic Alerts
+
+@mixin alert($name, $bgColor, $color, $borderColor) {
+  .#{$name} {
+    border: 3px dotted $borderColor;
+    color: $color;
+    background-color: $bgColor;
+    box-sizing: border-box;
+
+    .title-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+      .CircleX {
+        cursor: pointer;
+      }
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+
+    CircleX {
+      cursor: pointer;
+    }
+  }
+}
+
+@include alert("alert-denger", $errorBg, $errorColor, $errorBorder);
+@include alert("alert-success", $successBg, $successColor, $successBorder);
+@include alert("alert-wraning", $warningBg, $warningColor, $warningBorder);
+@include alert("alert-info", $infoBg, $infoColor, $infoBorder);
